@@ -39,26 +39,17 @@
 
 <button></button>
 <script>
-  const divs = document.querySelectorAll('div');
-  const button = document.querySelector('button');
-
-  function logText(e) {
-    console.log(this.classList.value);
-    // e.stopPropagation(); // stop bubbling!
-    // console.log(this);
+  const divs = document.querySelectorAll('div')
+  function logText(e){
+    console.log(this.classList.value)
+    // e.stopPropagation();  stop bubbling up. 
   }
 
   divs.forEach(div => div.addEventListener('click', logText, {
+    // capture: true === run the function on the way down rather than on the way down.
     capture: false,
-    once: true
-  }));
-
-  button.addEventListener('click', () => {
-    console.log('Click!!!');
-  }, {
-    once: true
-  });
-
+    once: true // runs only once. cannot have multiple clicks. good to use for store checkouts. prevent user to clicking multiple times. 
+  }))
 </script>
 </body>
 </html>
